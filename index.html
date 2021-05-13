@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <style>
+        body, html {
+            height: 100%;
+            width: 100%;
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow: hidden;
+        }
+
         .icon-values {
             color:#9aa0a6;
             display: inline-block;
@@ -21,6 +29,7 @@
             align-items: center;
             justify-content: flex-end;
             column-gap: 5px;
+            margin-right: 10px;
         }
 
         header .header-link {
@@ -61,6 +70,8 @@
         }
 
         body {
+            display: flex;
+            flex-direction: column;
             font-family: arial,sans-serif;
         }
 
@@ -70,6 +81,8 @@
             align-items: center;
             justify-content: center;
             row-gap: 35px;
+            margin-top: auto;
+            margin-bottom: auto;
         }
         
         .searchbar {
@@ -81,6 +94,7 @@
             border: 1px solid rgb(218, 214, 214);
             height: 45px;
             width: 60%;
+            max-width: 500px;
             border-radius: 50px;
         }
         .searchbar:hover {
@@ -121,7 +135,7 @@
 
         #search-buttons .search-button {
             height: 40px;
-            width: 110px;
+            width: 125px;
             border: none;
             border-radius: 5px;
             color: #3c4043;
@@ -131,6 +145,80 @@
         }
         #search-buttons .search-button:hover {
             border: 1px solid rgb(218, 214, 214);
+        }
+
+        footer {
+            height: 200px;
+            width: 100%;
+            padding: 0px;
+            margin-top: auto;
+            margin-left: auto;
+            background-color: #f2f2f2;
+            box-sizing: border-box;
+            align-self: flex-end;
+        }
+
+        footer #region-div {
+            background-color: #f2f2f2;
+            display: flex;
+            height: 50px;
+            flex-direction: row;
+            align-items: center;
+            border-bottom: 1px solid gray;
+        }
+
+        footer #region-div #footer-region {
+            margin-left: 10px;
+            font-size: 17.5px;
+            color: gray;
+        }
+
+        footer #footer-links {
+            background-color: #f2f2f2;
+            display: grid;
+            height: 75%;
+            grid-row: auto;
+            margin-top: auto;
+            align-items: center;
+            justify-content: center;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto auto auto ;
+            grid-gap: 10px;
+            grid-template-areas:
+            "content content content"
+            "header header header"
+            "footer footer footer";
+        }
+
+        @media (min-width: 1200px){
+            footer #footer-links{
+            margin-top: 10px;
+            grid-template-columns: 2fr 2fr 2fr;
+            grid-template-rows: auto auto auto;
+            grid-template-areas:
+            "header content footer";
+            }
+
+            footer {
+                height: 100px;
+            }
+        }
+
+        footer #footer-links .link-div {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            column-gap: 30px;
+        }
+
+        .footer-link {
+            color: gray;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        footer #footer-links .link-div .footer-link:hover {
+            text-decoration: underline;
         }
     </style>
 
@@ -176,8 +264,29 @@
         </div> 
         <div id="search-buttons">
             <button class="search-button">Google Search</button>
-            <button class="search-button">Try Your Luck</button>
+            <button class="search-button">I'm Feeling Lucky</button>
         </div>
     </div>
 </body>
+<footer>
+    <div id="region-div">
+        <p id="footer-region">Region</p>
+    </div>
+    <div id="footer-links">
+        <div class="link-div" style="grid-area: header;">
+            <a href="#" class="footer-link">About</a>
+            <a href="#" class="footer-link">Advertising</a>
+            <a href="#" class="footer-link">Business</a>
+            <a href="#" class="footer-link">How Search Works</a>
+        </div>
+        <div id="footer-co2" class="link-div" style="grid-area: content;">
+            <a href="#" class="footer-link">co2-neutral since 2007</a>
+        </div>
+        <div class="link-div" style="grid-area: footer;">
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">user agreement</a>
+            <a href="#" class="footer-link">Settings</a>
+        </div>
+    </div>
+</footer>
 </html>
